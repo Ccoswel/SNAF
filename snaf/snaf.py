@@ -395,7 +395,7 @@ class JunctionCountMatrixQuery():
             for nj,index in tqdm(zip(input_,range(sub_cond_df.shape[0])),total=len(input_)):
                 cond_row = sub_cond_df.iloc[index].tolist()
                 hlas_row = list(compress(hlas,cond_row))
-                combined_unique_hlas = reduce(lambda a,b:list(set(a+b)),hlas_row)
+                combined_unique_hlas = reduce(lambda a,b:list(set(a+b)),hlas_row,[])
                 try:
                     nj.binding_prediction(hlas=combined_unique_hlas,binding_method=binding_method)
                 except Exception as e:
