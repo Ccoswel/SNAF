@@ -144,7 +144,7 @@ def run_dash_T_antigen(input_abs_path,remove_cols=['uid'],host=None,port='8050',
     # run app
     if host is None:
         host = subprocess.run(['hostname'],stdout=subprocess.PIPE,universal_newlines=True).stdout.split('\n')[0]
-    app.run_server(host=host,port=port)
+    app.run_server(host='0.0.0.0',port=port) # if you can not access port ，try change host='0.0.0.0' to host=host
 
 
 
